@@ -4,7 +4,7 @@ public class Book {
     private final int id;
     private String title;
     private Author author;
-    private boolean available;
+    private boolean available = true;
     private Date registrationDate;
     private Date updateDate;
 
@@ -25,7 +25,7 @@ public class Book {
         return title;
     }
 
-    public Author getAthor() {
+    public Author getAuthor() {
         return author;
     }
 
