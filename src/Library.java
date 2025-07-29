@@ -73,6 +73,12 @@ public class Library {
 
     // gerenciamento dos emprestimos
 
+    public List<Lend> listActiveLends(){
+        return lends.stream()
+                .filter(Lend::isActive)
+                .toList();
+    }
+
     public void lendBook(Book book, String userName) {
         if(book.isAvailable()) {
             Lend lend = new Lend(book, userName);
@@ -87,6 +93,7 @@ public class Library {
         for (Lend lend : lends) {
             if(lend.getId() == idLend && lend.isActive()) {
                 lend.returnBook();
+                lend.getBook().setAvailable(true);
                 break;
             }
         }
